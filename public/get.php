@@ -79,6 +79,13 @@ $app->get('/data/{id:[1-5]+}', function(Request $request, Response $response,$ar
     // http://localhost:8000/data/4
 });
 
+$app->get('/data', function(Request $req, Response $res,array $args){
+    $status = $res->getStatusCode();
+    print_r("<br>" . $status);  
+    $res->getBody()->write("<br>end");
+    return $res;
+});
+
 $app->run();
 
 ?>

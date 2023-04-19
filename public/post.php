@@ -8,9 +8,11 @@ require_once __DIR__  .  '/../vendor/autoload.php';
 
 $app = AppFactory::create();
 
-$app->post('/', function(Request $req, Response $res, $args){
-    $data = $req->getParsedBody();
-    $res->getBody()->write($data['name'] . " " . $data['number']);
+// return JSON response
+$app->post('/', function(Request $req, Response $res,array $args){
+    $resdata = array('hello' => "neel");
+    $resbody = json_encode($resdata); 
+    $res->getBody()->write($resbody);
     return $res;
 });
 
