@@ -10,6 +10,7 @@ $app = AppFactory::create();
 
 $app->get('/',function(Request $req, Response $res, $args){
     $res->getBody()->write("NEEL");
+    return $res;
 });
 
 $app->run();
